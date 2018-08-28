@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title> Datagram - Upload new CSV File </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="{{url_for('static', filename='bootstrap.min.css')}}" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Upload new CSV File</h1>
+            <br>
+            <form method="post" enctype="multipart/form-data">
+                <input type="file" name="file">
+                <input type="text" placeholder="Business Name" name="business_name" value="{{ request.form.business_name }}">
+                <input type="text" placeholder="File Summary" name="file_summary" value="{{ request.form.file_summary }}">
+                <input class="btn btn-default" type="submit" value="Upload" >
+            </form>
+            {% if error %}
+                <p class="error"><strong>Error:</strong> {{ error }} </p>
+            {% endif %}
+            {% if response %}
+                <p class="error"><strong>Response:</strong> {{ response }}</p>
+            {% endif %}
+        </div>
+    <body>
+</html>
